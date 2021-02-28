@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+$fontSize: 20px;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    width: 100%;
+    font-size: $fontSize;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px 8px;
+    margin: 10px 0;
+    font-size: $fontSize;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    font-size: $fontSize;
+
+    &:hover {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.container {
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+}
