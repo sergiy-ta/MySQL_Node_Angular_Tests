@@ -25,5 +25,7 @@ app.get('/', (req: express.Request, res: express.Response) => {
 
 const server: http.Server = http.createServer(app);
 server.listen(port, () => {
+    /* tslint:disable */
     console.log(`Server is starting: ${port}`);
+    /* tslint:enable */
 });
