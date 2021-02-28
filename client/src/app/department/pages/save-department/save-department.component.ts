@@ -18,7 +18,7 @@ export class SaveDepartmentComponent implements OnInit {
   save(info: { name: string }): void {
     this.departmentService.save(info).subscribe(
       res => {
-        if (res.data.name) {
+        if (res.data) {
           alert('Збережено успішно');
         }
       },
