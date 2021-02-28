@@ -1,7 +1,9 @@
 import DepartmentDatabase from "../../database/department/department.database";
+import Create from "../../interface/class/create";
+import Get from "../../interface/class/get";
 import Department from "../../interface/object/department";
 
-export default class DepartmentService {
+export default class DepartmentService implements Create<Department>, Get<Department> {
     private readonly departmentDatabase: DepartmentDatabase;
 
     constructor() {
@@ -10,5 +12,9 @@ export default class DepartmentService {
 
     public create(info: { name: string }): Promise<Department> {
         return this.departmentDatabase.create(info);
+    }
+
+    public get(info: { dpID: number }): Promise<Department> {
+        return this.departmentDatabase.get(info);
     }
 }

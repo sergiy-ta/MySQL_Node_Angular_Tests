@@ -1,7 +1,9 @@
+import Create from "../../interface/class/create";
+import Get from "../../interface/class/get";
 import Department from "../../interface/object/department";
 import Database from "../database";
 
-export default class DepartmentDatabase extends Database {
+export default class DepartmentDatabase extends Database implements Create<Department>, Get<Department> {
 
     constructor() {
         super();
@@ -15,6 +17,18 @@ export default class DepartmentDatabase extends Database {
                 if (error) reject(new Error(error.message));
 
                 resolve({ dpID: result.insertId, dpName: info.name });
+            });
+        });
+    }
+
+    public get(info: { dpID: number }): Promise<Department> {
+        return new Promise<Department>((resolve, reject) => {
+            const query = "SELECT * FROM tblDepartments WHERE dpID = ?;";
+
+            super.getConnection().query(query, [info.dpID], (error, result) => {
+                if (error) reject(new Error(error.message));
+
+                resolve(result);
             });
         });
     }
