@@ -4,6 +4,11 @@ import EmployeesService from '../../service/employees/employees.service';
 
 const router: express.Router = express.Router();
 
+router.get('/employees', async (req: express.Request, res: express.Response) => {
+    const employeesService: EmployeesService = new EmployeesService();
+    APIService.processingOnAPIOfDataModels({ req, res, method: employeesService.getList(), dataError: null });
+});
+
 router.get('/employees/:id', async (req: express.Request, res: express.Response) => {
     const employeesService: EmployeesService = new EmployeesService();
     APIService.processingOnAPIOfDataModels({ req, res, method: employeesService.get({ empID: +req.params.id }), dataError: null });
