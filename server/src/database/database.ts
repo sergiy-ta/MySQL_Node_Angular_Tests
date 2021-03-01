@@ -1,6 +1,6 @@
 import mysql from 'mysql';
 
-export default class Database {
+export default class Database<T> {
     private readonly connection: mysql.Connection;
 
     constructor() {
@@ -23,6 +23,16 @@ export default class Database {
                 if (error) reject(new Error(error.message));
 
                 resolve(result.insertId);
+            });
+        });
+    }
+
+    protected getInDatabase(info: { query: string, data: any[] }): Promise<T> {
+        return new Promise<T>((resolve, reject) => {
+            this.getConnection().query(info.query, info.data, (error, result) => {
+                if (error) reject(new Error(error.message));
+
+                resolve(result);
             });
         });
     }
