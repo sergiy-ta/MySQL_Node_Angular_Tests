@@ -36,4 +36,14 @@ export default class Database<T> {
             });
         });
     }
+
+    protected getListInDatabase(info : { query: string }): Promise<T[]> {
+        return new Promise<T[]>((resolve, reject) => {
+            this.getConnection().query(info.query, (error, result) => {
+                if (error) reject(new Error(error.message));
+
+                resolve(result);
+            });
+        });
+    }
 }
