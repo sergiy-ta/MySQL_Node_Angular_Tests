@@ -23,14 +23,7 @@ export default class DepartmentDatabase extends Database<Department> implements 
     }
 
     public getList(): Promise<Department[]> {
-        return new Promise<Department[]>((resolve, reject) => {
-            const query = "SELECT * FROM tblDepartments;";
-
-            super.getConnection().query(query, (error, result) => {
-                if (error) reject(new Error(error.message));
-
-                resolve(result);
-            });
-        });
+        const query = "SELECT * FROM tblDepartments;";
+        return super.getListInDatabase({ query });
     }
 }
