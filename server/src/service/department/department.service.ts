@@ -11,7 +11,7 @@ export default class DepartmentService implements Create<Department>, Get<Depart
         this.departmentDatabase = new DepartmentDatabase();
     }
 
-    public create(info: { name: string }): Promise<Department> {
+    public create(info: { dpName: string }): Promise<Department> {
         return this.departmentDatabase.create(info);
     }
 

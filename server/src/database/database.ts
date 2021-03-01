@@ -16,4 +16,14 @@ export default class Database {
     protected getConnection(): mysql.Connection {
         return this.connection;
     }
+
+    protected createInDatabase(info: { query: string, data: any[] }): Promise<number> {
+        return new Promise<number>((resolve, reject) => {
+            this.getConnection().query(info.query, info.data, (error, result) => {
+                if (error) reject(new Error(error.message));
+
+                resolve(result.insertId);
+            });
+        });
+    }
 }

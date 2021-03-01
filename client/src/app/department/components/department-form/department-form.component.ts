@@ -9,9 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class DepartmentFormComponent implements OnInit, OnChanges {
   form: FormGroup;
 
-  @Input() name: string;
+  @Input() dpName: string;
 
-  @Output() send = new EventEmitter<{ name: string }>();
+  @Output() send = new EventEmitter<{ dpName: string }>();
 
   constructor(
     private formBuilder: FormBuilder
@@ -19,17 +19,17 @@ export class DepartmentFormComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: [null, [Validators.required]]
+      dpName: [null, [Validators.required]]
     });
   }
 
   ngOnChanges(): void {
     this.form = this.formBuilder.group({
-      name: [this.name, [Validators.required]]
+      dpName: [this.dpName, [Validators.required]]
     });
   }
 
-  sendForm(info: { name: string }): void {
+  sendForm(info: { dpName: string }): void {
     this.send.emit(info);
   }
 }

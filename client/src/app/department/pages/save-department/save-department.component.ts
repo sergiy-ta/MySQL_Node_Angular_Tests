@@ -15,7 +15,7 @@ export class SaveDepartmentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save(info: { name: string }): void {
+  save(info: { dpName: string }): void {
     this.departmentService.save(info).subscribe(
       res => {
         if (res.data) {

@@ -10,16 +10,11 @@ export default class DepartmentDatabase extends Database implements Create<Depar
         super();
     }
 
-    public create(info: { name: string }): Promise<Department> {
-        return new Promise<Department>((resolve, reject) => {
-            const query: string = 'INSERT INTO tblDepartments (dpName) VALUES (?);';
+    public async create(info: { dpName: string }): Promise<Department> {
+        const query: string = 'INSERT INTO tblDepartments (dpName) VALUES (?);';
+        const insertId: number = await super.createInDatabase({ query, data: [info.dpName] });
 
-            super.getConnection().query(query, [info.name], (error, result) => {
-                if (error) reject(new Error(error.message));
-
-                resolve({ dpID: result.insertId, dpName: info.name });
-            });
-        });
+        return { dpID: insertId, dpName: info.dpName };
     }
 
     public get(info: { dpID: number }): Promise<Department> {
