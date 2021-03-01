@@ -1,10 +1,11 @@
 import Create from "../../interface/class/create";
 import Get from "../../interface/class/get";
 import GetList from "../../interface/class/getList";
+import Update from "../../interface/class/update";
 import Employees from "../../interface/object/employees";
 import Database from "../database";
 
-export default class EmployeesDatabase extends Database<Employees> implements Create<Employees>, Get<Employees>, GetList<Employees> {
+export default class EmployeesDatabase extends Database<Employees> implements Create<Employees>, Get<Employees>, GetList<Employees>, Update {
     constructor() {
         super();
     }
@@ -17,12 +18,17 @@ export default class EmployeesDatabase extends Database<Employees> implements Cr
     }
 
     public get(info: { empID: number }): Promise<Employees> {
-        const query = "SELECT * FROM tblEmployees WHERE empID = ?;";
+        const query: string = "SELECT * FROM tblEmployees WHERE empID = ?;";
         return super.getInDatabase({ query, data: [info.empID]});
     }
 
     public getList(): Promise<Employees[]> {
-        const query = "SELECT * FROM tblEmployees;";
+        const query: string = "SELECT * FROM tblEmployees;";
         return super.getListInDatabase({ query });
+    }
+
+    public update(info: Employees): Promise<boolean> {
+        const query: string = "UPDATE tblEmployees SET empName = ?, empActive = ?, emp_dpID =? WHERE empID = ?";
+        return super.updateInDatabase({ query, data: [info.empID, info.empName, info.empActive, info.emp_dpID]});
     }
 }

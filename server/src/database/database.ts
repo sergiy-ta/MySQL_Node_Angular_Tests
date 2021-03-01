@@ -46,4 +46,14 @@ export default class Database<T> {
             });
         });
     }
+
+    protected updateInDatabase(info: { query: string, data: any[] }): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            this.getConnection().query(info.query, info.data, (error, result) => {
+                if (error) reject(new Error(error.message));
+
+                resolve(!!result);
+            });
+        })
+    }
 }
