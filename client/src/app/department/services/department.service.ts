@@ -12,7 +12,7 @@ export class DepartmentService {
     private http: HttpClient
   ) { }
 
-  save(info: { name: string }): Observable<{ data: { name: string } }> {
-    return this.http.post<{ data: { name: string } }>(environment.urlForServer + '/api/v1/department', info);
+  save(info: { dpName: string }): Observable<{ data: { dpName: string } }> {
+    return this.http.post<{ data: { dpName: string } }>(environment.urlForServer + '/api/v1/department', info);
   }
 }
