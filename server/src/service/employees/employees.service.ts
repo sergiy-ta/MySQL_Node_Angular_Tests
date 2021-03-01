@@ -27,4 +27,8 @@ export default class EmployeesService implements Create<Employees>, Get<Employee
     public update(info: Employees): Promise<boolean> {
         return this.employeesDatabase.update(info);
     }
+
+    public delete(info: { empID: number }): Promise<boolean> {
+        return this.employeesDatabase.delete(info);
+    }
 }
