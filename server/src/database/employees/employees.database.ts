@@ -2,7 +2,7 @@ import Create from "../../interface/class/create";
 import Employees from "../../interface/object/employees";
 import Database from "../database";
 
-export default class EmployeesDatabase extends Database implements Create<Employees> {
+export default class EmployeesDatabase extends Database<Employees> implements Create<Employees> {
     constructor() {
         super();
     }
@@ -12,5 +12,10 @@ export default class EmployeesDatabase extends Database implements Create<Employ
         const insertId: number = await super.createInDatabase({ query, data: [info.empName, info.empActive, info.emp_dpID] });
 
         return { empID: insertId, empName: info.empName, empActive: info.empActive, emp_dpID: info.emp_dpID };
+    }
+
+    public get(info: { empID: number }): Promise<Employees> {
+        const query = "SELECT * FROM tblEmployees WHERE empID = ?;";
+        return super.getInDatabase({ query, data: [info.empID]});
     }
 }

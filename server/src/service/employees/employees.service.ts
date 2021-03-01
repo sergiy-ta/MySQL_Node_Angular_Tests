@@ -12,4 +12,8 @@ export default class EmployeesService implements Create<Employees> {
     public create(info: { empName: string, empActive: boolean, emp_dpID: number }): Promise<Employees> {
         return this.employeesDatabase.create(info);
     }
+
+    public get(info: { empID: number }): Promise<Employees> {
+        return this.employeesDatabase.get(info);
+    }
 }
