@@ -2,9 +2,10 @@ import EmployeesDatabase from "../../database/employees/employees.database";
 import Create from "../../interface/class/create";
 import Get from "../../interface/class/get";
 import GetList from "../../interface/class/getList";
+import Update from "../../interface/class/update";
 import Employees from "../../interface/object/employees";
 
-export default class EmployeesService implements Create<Employees>, Get<Employees>, GetList<Employees> {
+export default class EmployeesService implements Create<Employees>, Get<Employees>, GetList<Employees>, Update {
     private readonly employeesDatabase: EmployeesDatabase;
 
     constructor() {
@@ -21,5 +22,9 @@ export default class EmployeesService implements Create<Employees>, Get<Employee
 
     public getList(): Promise<Employees[]> {
         return  this.employeesDatabase.getList();
+    }
+
+    public update(info: Employees): Promise<boolean> {
+        return this.employeesDatabase.update(info);
     }
 }
