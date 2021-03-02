@@ -17,18 +17,28 @@ export default class Database<T> {
         return this.connection;
     }
 
-    protected createInDatabase(info: { query: string, data: any[] }): Promise<number> {
-        return new Promise<number>((resolve, reject) => {
-            this.getConnection().query(info.query, info.data, (error, result) => {
-                if (error) reject(new Error(error.message));
-
-                resolve(result.insertId);
-            });
-        });
+    protected async createInDatabase(info: { query: string, data: any[] }): Promise<number> {
+        return (await this.workWithData(info)).insertId;
     }
 
     protected getInDatabase(info: { query: string, data: any[] }): Promise<T> {
-        return new Promise<T>((resolve, reject) => {
+        return this.workWithData(info);
+    }
+
+    protected getListInDatabase(info : { query: string }): Promise<T[]> {
+        return this.workWithoutData(info);
+    }
+
+    protected async updateInDatabase(info: { query: string, data: any[] }): Promise<boolean> {
+        return !!(await this.workWithData(info));
+    }
+
+    protected async deleteInDatabase(info: { query: string, data: any[] }): Promise<boolean> {
+        return !!(await this.workWithData(info));
+    }
+
+    private workWithData(info: { query: string, data: any[] }): Promise<any> {
+        return new Promise<boolean>((resolve, reject) => {
             this.getConnection().query(info.query, info.data, (error, result) => {
                 if (error) reject(new Error(error.message));
 
@@ -37,33 +47,13 @@ export default class Database<T> {
         });
     }
 
-    protected getListInDatabase(info : { query: string }): Promise<T[]> {
-        return new Promise<T[]>((resolve, reject) => {
+    private workWithoutData(info: { query: string }): Promise<any> {
+        return new Promise<any>((resolve, reject) => {
             this.getConnection().query(info.query, (error, result) => {
                 if (error) reject(new Error(error.message));
 
                 resolve(result);
             });
         });
-    }
-
-    protected updateInDatabase(info: { query: string, data: any[] }): Promise<boolean> {
-        return new Promise<boolean>((resolve, reject) => {
-            this.getConnection().query(info.query, info.data, (error, result) => {
-                if (error) reject(new Error(error.message));
-
-                resolve(!!result);
-            });
-        })
-    }
-
-    protected deleteInDatabase(info: { query: string, data: any[] }): Promise<boolean> {
-        return new Promise<boolean>((resolve, reject) => {
-            this.getConnection().query(info.query, info.data, (error, result) => {
-                if (error) reject(new Error(error.message));
-
-                resolve(!!result);
-            });
-        })
     }
 }
