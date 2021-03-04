@@ -21,6 +21,13 @@ router.post('/department', async (req: express.Request, res: express.Response) =
     APIService.processingOnAPIOfDataModels({ req, res, method: departmentService.create(req.body), dataError: null });
 });
 
+router.put('/department', async (req: express.Request, res: express.Response) => {
+    if (!req.body) res.status(400).json({ data: null, message: 'not been entered data to form'});
+
+    const departmentService: DepartmentService = new DepartmentService();
+    APIService.processingOnAPIOfDataModels({ req, res, method: departmentService.update(req.body), dataError: null });
+});
+
 router.delete('/department/:id', async (req: express.Request, res: express.Response) => {
     const departmentService: DepartmentService = new DepartmentService();
     APIService.processingOnAPIOfDataModels({ req, res, method: departmentService.delete({ dpID: +req.params.id }), dataError: null });

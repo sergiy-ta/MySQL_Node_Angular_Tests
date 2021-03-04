@@ -2,10 +2,11 @@ import Create from "../../interface/class/create";
 import Delete from "../../interface/class/delete";
 import Get from "../../interface/class/get";
 import GetList from "../../interface/class/getList";
+import Update from "../../interface/class/update";
 import Department from "../../interface/object/department";
 import Database from "../database";
 
-export default class DepartmentDatabase extends Database<Department> implements Create<Department>, Get<Department>, GetList<Department>, Delete {
+export default class DepartmentDatabase extends Database<Department> implements Create<Department>, Get<Department>, GetList<Department> Update, Delete {
 
     constructor() {
         super();
@@ -28,6 +29,11 @@ export default class DepartmentDatabase extends Database<Department> implements 
         return super.getListInDatabase({ query });
     }
 
+    public update(info: Department): Promise<boolean> {
+        const query: string = "UPDATE tblDepartments SET dpName = ? WHERE dpID = ?";
+        return super.updateInDatabase({ query, data: [info.dpName, info.dpID]});
+    }
+    
     public delete(info: { dpID: number }): Promise<boolean> {
         const query: string = "DELETE FROM tblDepartments WHERE c = ?";
         return super.deleteInDatabase({ query, data: [info.dpID]});
