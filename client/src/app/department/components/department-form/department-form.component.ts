@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,7 +15,8 @@ export class DepartmentFormComponent implements OnInit, OnChanges {
   @Output() send = new EventEmitter<{ dpName: string }>();
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -31,5 +33,9 @@ export class DepartmentFormComponent implements OnInit, OnChanges {
 
   sendForm(info: { dpName: string }): void {
     this.send.emit(info);
+  }
+
+  back(): void {
+    this.location.back();
   }
 }

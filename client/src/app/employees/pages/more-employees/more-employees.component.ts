@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { EmployeesService } from '../../service/employees.service';
@@ -17,6 +18,7 @@ export class MoreEmployeesComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private employeesService: EmployeesService
   ) { }
 
@@ -36,6 +38,10 @@ export class MoreEmployeesComponent implements OnInit {
         this.emp_dpID = res.data.emp_dpID;
       }
     );
+  }
+
+  back(): void {
+    this.location.back();
   }
 
 }

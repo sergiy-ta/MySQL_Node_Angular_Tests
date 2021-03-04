@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Department } from 'src/app/department/interface/department';
@@ -23,6 +24,7 @@ export class EmployeesFormComponent implements OnInit, OnChanges {
 
   constructor(
     private formBuilder: FormBuilder,
+    private location: Location,
     private departmentService: DepartmentService
   ) { }
 
@@ -55,6 +57,10 @@ export class EmployeesFormComponent implements OnInit, OnChanges {
       },
       error => console.error(error)
     );
+  }
+
+  back(): void {
+    this.location.back();
   }
 
 }

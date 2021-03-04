@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Department } from '../../interface/department';
 
 @Component({
@@ -10,7 +11,9 @@ export class DepartmentListComponent implements OnInit, OnChanges {
   @Input() departmentList: Department[] = [];
   list: Department[] = [];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.list = this.departmentList;
@@ -27,6 +30,10 @@ export class DepartmentListComponent implements OnInit, OnChanges {
         this.list.push(element);
       }
     });
+  }
+
+  create(): void {
+    this.router.navigate(['department/save']);
   }
 
 }

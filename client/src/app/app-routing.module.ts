@@ -15,7 +15,7 @@ import { MainComponent } from './pages/main/main.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
-  
+
   { path: 'department/save', component: SaveDepartmentComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:dpID/more', component: MoreDepartmentComponent },
