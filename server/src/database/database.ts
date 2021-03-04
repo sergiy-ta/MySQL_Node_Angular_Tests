@@ -21,7 +21,7 @@ export default class Database<T> {
         return (await this.workWithData(info)).insertId;
     }
 
-    protected getInDatabase(info: { query: string, data: any[] }): Promise<T> {
+    protected getInDatabase(info: { query: string, data: any[] }): Promise<T[]> {
         return this.workWithData(info);
     }
 

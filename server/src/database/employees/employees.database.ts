@@ -18,9 +18,9 @@ export default class EmployeesDatabase extends Database<Employees> implements Cr
         return { empID: insertId, empName: info.empName, empActive: info.empActive, emp_dpID: info.emp_dpID };
     }
 
-    public get(info: { empID: number }): Promise<Employees> {
+    public async get(info: { empID: number }): Promise<Employees> {
         const query: string = "SELECT * FROM tblEmployees WHERE empID = ?;";
-        return super.getInDatabase({ query, data: [info.empID]});
+        return (await super.getInDatabase({ query, data: [info.empID]}))[0];
     }
 
     public getList(): Promise<Employees[]> {
@@ -29,8 +29,8 @@ export default class EmployeesDatabase extends Database<Employees> implements Cr
     }
 
     public update(info: Employees): Promise<boolean> {
-        const query: string = "UPDATE tblEmployees SET empName = ?, empActive = ?, emp_dpID =? WHERE empID = ?";
-        return super.updateInDatabase({ query, data: [info.empID, info.empName, info.empActive, info.emp_dpID]});
+        const query: string = "UPDATE tblEmployees SET empName = ?, empActive = ?, emp_dpID = ? WHERE empID = ?";
+        return super.updateInDatabase({ query, data: [info.empName, info.empActive, info.emp_dpID, info.empID]});
     }
 
     public delete(info: { empID: number }): Promise<boolean> {
