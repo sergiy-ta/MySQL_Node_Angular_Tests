@@ -33,7 +33,7 @@ export default class DepartmentDatabase extends Database<Department> implements 
         const query: string = "UPDATE tblDepartments SET dpName = ? WHERE dpID = ?";
         return super.updateInDatabase({ query, data: [info.dpName, info.dpID]});
     }
-    
+
     public delete(info: { dpID: number }): Promise<boolean> {
         const query: string = "DELETE FROM tblDepartments WHERE c = ?";
         return super.deleteInDatabase({ query, data: [info.dpID]});

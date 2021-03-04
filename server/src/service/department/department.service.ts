@@ -24,7 +24,7 @@ export default class DepartmentService implements Create<Department>, Get<Depart
     public getList(): Promise<Department[]> {
         return this.departmentDatabase.getList();
     }
-  
+
     public update(info: Department): Promise<boolean> {
         return this.departmentDatabase.update(info);
     }
