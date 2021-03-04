@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsModule } from '../components/components.module';
 import { SaveEmployeesComponent } from './pages/save-employees/save-employees.component';
 import { EmployeesFormComponent } from './components/employees-form/employees-form.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
@@ -21,7 +22,8 @@ import { DeleteEmployeesComponent } from './pages/delete-employees/delete-employ
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ]
 })
 export class EmployeesModule { }

@@ -1,0 +1,8 @@
+<form [formGroup]="form" (ngSubmit)="sendForm(form.value)">
+    <div>
+        <label for="text">Пошук: </label><br>
+        <input type="text" name="text" id="text" formControlName="text">
+    </div>
+
+    <button type="submit">Найти</button>
+</form>
