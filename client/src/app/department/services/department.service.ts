@@ -28,4 +28,8 @@ export class DepartmentService {
   public edit(info: Department): Observable<{ data: boolean }> {
     return this.http.put<{ data: boolean }>(environment.urlForServer + '/api/v1/department', info);
   }
+
+  public delete(info: { dpID: number }): Observable<{ data: boolean }> {
+    return this.http.delete<{ data: boolean }>(environment.urlForServer + '/api/v1/department/' + info.dpID);
+  }
 }
