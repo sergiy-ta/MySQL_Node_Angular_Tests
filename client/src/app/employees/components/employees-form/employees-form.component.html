@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="sendForm(form.value)">
+    <div>
+        <label for="empName">Ім'я: </label><br>
+        <input type="text" name="empName" id="empName" formControlName="empName">
+    </div>
+
+    <div>
+        <label for="empActive">Активний: </label>
+        <input type="checkbox" name="empActive" id="empActive" formControlName="empActive">
+    </div>
+
+    <div>
+        <label for="emp_dpID">Департамент: </label><br>
+        <select name="emp_dpID" id="emp_dpID" formControlName="emp_dpID">
+            <option value=""></option>
+            <option [value]="department.dpID" *ngFor="let department of departmentList">{{ department.dpName }}</option>
+        </select>
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Надіслати</button>
+</form>
+
+<button (click)="back()">Назад</button>

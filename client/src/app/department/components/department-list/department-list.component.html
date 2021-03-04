@@ -1,0 +1,24 @@
+<app-search (send)="filter($event)"></app-search>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>dpID</th>
+            <th>dpName</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let department of list">
+            <td><a href="/department/{{ department.dpID}}/more">View</a></td>
+            <td><a href="/department/{{ department.dpID}}/edit">Edit</a></td>
+            <td>{{ department.dpID }}</td>
+            <td>{{ department.dpName }}</td>
+            <td><a href="/department/{{ department.dpID}}/delete">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<button class="create-btn" (click)="create()">Створити</button>

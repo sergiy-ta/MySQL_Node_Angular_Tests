@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="sendForm(form.value)">
+    <div>
+        <label for="dpName">Ім'я: </label><br>
+        <input type="text" name="dpName" id="dpName" formControlName="dpName">
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Надіслати</button>
+</form>
+
+<button (click)="back()">Назад</button>
