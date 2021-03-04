@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let employees of list">
-            <td><a href="">View</a></td>
+            <td><a href="/employees/{{ employees.empID }}/more">View</a></td>
             <td><a href="/employees/{{ employees.empID }}/edit">Edit</a></td>
             <td>{{ employees.empID }}</td>
             <td>{{ employees.empName }}</td>
