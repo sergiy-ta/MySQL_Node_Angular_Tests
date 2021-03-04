@@ -6,11 +6,19 @@ import { EmployeesFormComponent } from './components/employees-form/employees-fo
 import { EmployeesComponent } from './pages/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.component';
+import { DeleteEmployeesComponent } from './pages/delete-employees/delete-employees.component';
 
 
 
 @NgModule({
-  declarations: [SaveEmployeesComponent, EmployeesFormComponent, EmployeesComponent, EmployeesListComponent, EditEmployeesComponent],
+  declarations: [
+    SaveEmployeesComponent,
+    EmployeesFormComponent,
+    EmployeesComponent,
+    EmployeesListComponent,
+    EditEmployeesComponent,
+    DeleteEmployeesComponent
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule
