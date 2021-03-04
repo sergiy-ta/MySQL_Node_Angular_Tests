@@ -20,11 +20,15 @@ label {
     font-size: $fontSize;
 }
 
-input {
+input, select {
     width: calc(100% - 20px);
     padding: 10px 8px;
     margin: 10px 0;
     font-size: $fontSize;
+}
+
+input[type='checkbox'] {
+    width: 16px;
 }
 
 button {
