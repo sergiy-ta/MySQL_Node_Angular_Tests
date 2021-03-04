@@ -8,6 +8,7 @@ import { EmployeesComponent } from './pages/employees/employees.component';
 import { EmployeesListComponent } from './components/employees-list/employees-list.component';
 import { EditEmployeesComponent } from './pages/edit-employees/edit-employees.component';
 import { DeleteEmployeesComponent } from './pages/delete-employees/delete-employees.component';
+import { MoreEmployeesComponent } from './pages/more-employees/more-employees.component';
 
 
 
@@ -18,7 +19,8 @@ import { DeleteEmployeesComponent } from './pages/delete-employees/delete-employ
     EmployeesComponent,
     EmployeesListComponent,
     EditEmployeesComponent,
-    DeleteEmployeesComponent
+    DeleteEmployeesComponent,
+    MoreEmployeesComponent
   ],
   imports: [
     CommonModule,

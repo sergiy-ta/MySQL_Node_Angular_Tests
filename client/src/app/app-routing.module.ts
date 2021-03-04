@@ -8,6 +8,7 @@ import { SaveDepartmentComponent } from './department/pages/save-department/save
 import { DeleteEmployeesComponent } from './employees/pages/delete-employees/delete-employees.component';
 import { EditEmployeesComponent } from './employees/pages/edit-employees/edit-employees.component';
 import { EmployeesComponent } from './employees/pages/employees/employees.component';
+import { MoreEmployeesComponent } from './employees/pages/more-employees/more-employees.component';
 import { SaveEmployeesComponent } from './employees/pages/save-employees/save-employees.component';
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
 
   { path: 'employees/save', component: SaveEmployeesComponent },
   { path: 'employees', component: EmployeesComponent },
+  { path: 'employees/:empID/more', component: MoreEmployeesComponent },
   { path: 'employees/:empID/edit', component: EditEmployeesComponent },
   { path: 'employees/:empID/delete', component: DeleteEmployeesComponent }
 ];
