@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DeleteDepartmentComponent } from './department/pages/delete-department/delete-department.component';
 import { DepartmentComponent } from './department/pages/department/department.component';
 import { EditDepartmentComponent } from './department/pages/edit-department/edit-department.component';
 import { SaveDepartmentComponent } from './department/pages/save-department/save-department.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'department/save', component: SaveDepartmentComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:dpID/edit', component: EditDepartmentComponent },
+  { path: 'department/:dpID/delete', component: DeleteDepartmentComponent },
 
   { path: 'employees/save', component: SaveEmployeesComponent },
   { path: 'employees', component: EmployeesComponent },

@@ -35,7 +35,7 @@ export default class DepartmentDatabase extends Database<Department> implements 
     }
 
     public delete(info: { dpID: number }): Promise<boolean> {
-        const query: string = "DELETE FROM tblDepartments WHERE c = ?";
+        const query: string = "DELETE FROM tblDepartments WHERE dpID = ?";
         return super.deleteInDatabase({ query, data: [info.dpID]});
     }
 }

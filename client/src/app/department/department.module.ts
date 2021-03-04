@@ -7,6 +7,7 @@ import { SaveDepartmentComponent } from './pages/save-department/save-department
 import { DepartmentFormComponent } from './components/department-form/department-form.component';
 import { DepartmentListComponent } from './components/department-list/department-list.component';
 import { EditDepartmentComponent } from './pages/edit-department/edit-department.component';
+import { DeleteDepartmentComponent } from './pages/delete-department/delete-department.component';
 
 
 
@@ -16,7 +17,8 @@ import { EditDepartmentComponent } from './pages/edit-department/edit-department
     SaveDepartmentComponent,
     DepartmentFormComponent,
     DepartmentListComponent,
-    EditDepartmentComponent
+    EditDepartmentComponent,
+    DeleteDepartmentComponent
   ],
   imports: [
     CommonModule,
