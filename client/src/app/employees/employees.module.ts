@@ -26,6 +26,9 @@ import { MoreEmployeesComponent } from './pages/more-employees/more-employees.co
     CommonModule,
     ReactiveFormsModule,
     ComponentsModule
+  ],
+  exports: [
+    EmployeesComponent
   ]
 })
 export class EmployeesModule { }

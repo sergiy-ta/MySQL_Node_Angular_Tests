@@ -10,9 +10,12 @@ import { EditEmployeesComponent } from './employees/pages/edit-employees/edit-em
 import { EmployeesComponent } from './employees/pages/employees/employees.component';
 import { MoreEmployeesComponent } from './employees/pages/more-employees/more-employees.component';
 import { SaveEmployeesComponent } from './employees/pages/save-employees/save-employees.component';
+import { MainComponent } from './pages/main/main.component';
 
 
 const routes: Routes = [
+  { path: '', component: MainComponent },
+  
   { path: 'department/save', component: SaveDepartmentComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:dpID/more', component: MoreDepartmentComponent },
