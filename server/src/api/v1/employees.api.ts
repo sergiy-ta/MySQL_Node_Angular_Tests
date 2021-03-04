@@ -29,8 +29,6 @@ router.put('/employees', async (req: express.Request, res: express.Response) => 
 });
 
 router.delete('/employees/:id', async (req: express.Request, res: express.Response) => {
-    if (!req.body) res.status(400).json({ data: null, message: 'not been entered data to form'});
-
     const employeesService: EmployeesService = new EmployeesService();
     APIService.processingOnAPIOfDataModels({ req, res, method: employeesService.delete({ empID: +req.params.id }), dataError: null });
 });
