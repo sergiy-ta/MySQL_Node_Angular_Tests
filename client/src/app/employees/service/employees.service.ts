@@ -13,7 +13,11 @@ export class EmployeesService {
     private http: HttpClient
   ) { }
 
-  save(info: { empName: string, empActive: boolean, emp_dpID: string }): Observable<{ data: Employees }> {
+  public save(info: { empName: string, empActive: boolean, emp_dpID: string }): Observable<{ data: Employees }> {
     return this.http.post<{ data: Employees }>(environment.urlForServer + '/api/v1/employees', info);
+  }
+
+  public getList(): Observable<{ data: Employees[] }> {
+    return this.http.get<{ data: Employees[] }>(environment.urlForServer + '/api/v1/employees');
   }
 }
