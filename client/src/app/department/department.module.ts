@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ComponentsModule } from '../components/components.module';
 
 import { DepartmentComponent } from './pages/department/department.component';
 import { SaveDepartmentComponent } from './pages/save-department/save-department.component';
@@ -24,7 +25,8 @@ import { MoreDepartmentComponent } from './pages/more-department/more-department
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ComponentsModule
   ],
   exports: [
     DepartmentComponent,

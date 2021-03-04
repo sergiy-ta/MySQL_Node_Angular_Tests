@@ -22,7 +22,7 @@ export class EmployeesListComponent implements OnInit, OnChanges {
   filter(info: { text: string }): void {
     this.list = [];
     this.employeesList.forEach((element, index) => {
-      if (element.empName.includes(info.text)) {
+      if (element.empName.startsWith(info.text)) {
         this.list.push(element);
       }
     });
