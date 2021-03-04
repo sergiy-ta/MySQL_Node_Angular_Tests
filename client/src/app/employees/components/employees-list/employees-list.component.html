@@ -1,0 +1,24 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>empID</th>
+            <th>empName</th>
+            <th>empActive</th>
+            <th>emp_dpID</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employees of employeesList">
+            <td><a href="">View</a></td>
+            <td><a href="">Edit</a></td>
+            <td>{{ employees.empID }}</td>
+            <td>{{ employees.empName }}</td>
+            <td>{{ employees.empActive }}</td>
+            <td>{{ employees.emp_dpID }}</td>
+            <td><a href="">Delete</a></td>
+        </tr>
+    </tbody>
+</table>
