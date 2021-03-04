@@ -7,10 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DepartmentModule } from './department/department.module';
 import { EmployeesModule } from './employees/employees.module';
+import { MainComponent } from './pages/main/main.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent
   ],
   imports: [
     HttpClientModule,

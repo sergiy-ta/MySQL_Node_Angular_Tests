@@ -24,6 +24,9 @@ import { DeleteEmployeesComponent } from './pages/delete-employees/delete-employ
     CommonModule,
     ReactiveFormsModule,
     ComponentsModule
+  ],
+  exports: [
+    EmployeesComponent
   ]
 })
 export class EmployeesModule { }

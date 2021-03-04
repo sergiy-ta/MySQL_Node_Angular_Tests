@@ -9,9 +9,12 @@ import { DeleteEmployeesComponent } from './employees/pages/delete-employees/del
 import { EditEmployeesComponent } from './employees/pages/edit-employees/edit-employees.component';
 import { EmployeesComponent } from './employees/pages/employees/employees.component';
 import { SaveEmployeesComponent } from './employees/pages/save-employees/save-employees.component';
+import { MainComponent } from './pages/main/main.component';
 
 
 const routes: Routes = [
+  { path: '', component: MainComponent },
+  
   { path: 'department/save', component: SaveDepartmentComponent },
   { path: 'department', component: DepartmentComponent },
   { path: 'department/:dpID/more', component: MoreDepartmentComponent },
