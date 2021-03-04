@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DepartmentComponent } from './department/pages/department/department.component';
+import { EditDepartmentComponent } from './department/pages/edit-department/edit-department.component';
 import { SaveDepartmentComponent } from './department/pages/save-department/save-department.component';
 import { DeleteEmployeesComponent } from './employees/pages/delete-employees/delete-employees.component';
 import { EditEmployeesComponent } from './employees/pages/edit-employees/edit-employees.component';
@@ -11,6 +12,7 @@ import { SaveEmployeesComponent } from './employees/pages/save-employees/save-em
 const routes: Routes = [
   { path: 'department/save', component: SaveDepartmentComponent },
   { path: 'department', component: DepartmentComponent },
+  { path: 'department/:dpID/edit', component: EditDepartmentComponent },
 
   { path: 'employees/save', component: SaveEmployeesComponent },
   { path: 'employees', component: EmployeesComponent },
