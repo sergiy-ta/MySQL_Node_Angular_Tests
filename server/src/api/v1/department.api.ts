@@ -28,4 +28,9 @@ router.put('/department', async (req: express.Request, res: express.Response) =>
     APIService.processingOnAPIOfDataModels({ req, res, method: departmentService.update(req.body), dataError: null });
 });
 
+router.delete('/department/:id', async (req: express.Request, res: express.Response) => {
+    const departmentService: DepartmentService = new DepartmentService();
+    APIService.processingOnAPIOfDataModels({ req, res, method: departmentService.delete({ dpID: +req.params.id }), dataError: null });
+});
+
 export default router;
