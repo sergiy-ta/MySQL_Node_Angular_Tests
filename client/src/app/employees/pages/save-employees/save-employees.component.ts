@@ -15,7 +15,7 @@ export class SaveEmployeesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  save(info: { empName: string, empActive: boolean, emp_dpID: string }): void {
+  save(info: { empName: string, empActive: boolean, emp_dpID: number }): void {
     this.employeesService.save(info).subscribe(
       res => {
         if (res.data) {
