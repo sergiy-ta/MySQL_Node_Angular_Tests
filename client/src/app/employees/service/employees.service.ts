@@ -28,4 +28,8 @@ export class EmployeesService {
   public edit(info: { empID: number, empName: string, empActive: boolean, emp_dpID: number }): Observable<{ data: boolean }> {
     return this.http.put<{ data: boolean }>(environment.urlForServer + '/api/v1/employees', info);
   }
+
+  public delete(info: { empID: number }): Observable<{ data: boolean }> {
+    return this.http.delete<{ data: boolean }>(environment.urlForServer + '/api/v1/employees/' + info.empID);
+  }
 }
