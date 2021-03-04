@@ -17,9 +17,9 @@ export default class DepartmentDatabase extends Database<Department> implements 
         return { dpID: insertId, dpName: info.dpName };
     }
 
-    public get(info: { dpID: number }): Promise<Department> {
+    public async get(info: { dpID: number }): Promise<Department> {
         const query = "SELECT * FROM tblDepartments WHERE dpID = ?;";
-        return super.getInDatabase({ query, data: [info.dpID]});
+        return (await super.getInDatabase({ query, data: [info.dpID]}))[0];
     }
 
     public getList(): Promise<Department[]> {
