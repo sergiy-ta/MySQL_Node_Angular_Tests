@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Employees } from '../../interface/employees';
 
 @Component({
@@ -10,7 +11,9 @@ export class EmployeesListComponent implements OnInit, OnChanges {
   @Input() employeesList: Employees[] = [];
   list: Employees[] = [];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -26,6 +29,10 @@ export class EmployeesListComponent implements OnInit, OnChanges {
         this.list.push(element);
       }
     });
+  }
+
+  create(): void {
+    this.router.navigate(['employees/save']);
   }
 
 }

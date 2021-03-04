@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { DepartmentService } from '../../services/department.service';
@@ -13,6 +14,7 @@ export class MoreDepartmentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private departmentService: DepartmentService
   ) { }
 
@@ -30,6 +32,10 @@ export class MoreDepartmentComponent implements OnInit {
         this.dpName = res.data.dpName;
       }
     );
+  }
+
+  back(): void {
+    this.location.back();
   }
 
 }
