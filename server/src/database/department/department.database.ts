@@ -6,7 +6,7 @@ import Update from "../../interface/class/update";
 import Department from "../../interface/object/department";
 import Database from "../database";
 
-export default class DepartmentDatabase extends Database<Department> implements Create<Department>, Get<Department>, GetList<Department> Update, Delete {
+export default class DepartmentDatabase extends Database<Department> implements Create<Department>, Get<Department>, GetList<Department>, Update, Delete {
 
     constructor() {
         super();

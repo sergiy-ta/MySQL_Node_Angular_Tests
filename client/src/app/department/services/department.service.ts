@@ -13,15 +13,19 @@ export class DepartmentService {
     private http: HttpClient
   ) { }
 
-  save(info: { dpName: string }): Observable<{ data: Department }> {
+  public save(info: { dpName: string }): Observable<{ data: Department }> {
     return this.http.post<{ data: Department }>(environment.urlForServer + '/api/v1/department', info);
   }
 
-  get(info: { dpID: number }): Observable<{ data: Department }> {
+  public get(info: { dpID: number }): Observable<{ data: Department }> {
     return this.http.get<{ data: Department }>(environment.urlForServer + '/api/v1/department/' + info.dpID);
   }
 
-  getList(): Observable<{ data: Department[] }> {
+  public getList(): Observable<{ data: Department[] }> {
     return this.http.get<{ data: Department[] }>(environment.urlForServer + '/api/v1/department');
+  }
+
+  public edit(info: Department): Observable<{ data: boolean }> {
+    return this.http.put<{ data: boolean }>(environment.urlForServer + '/api/v1/department', info);
   }
 }
